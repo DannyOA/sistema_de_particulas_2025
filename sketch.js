@@ -13,7 +13,7 @@ function draw() {
   background(20, 30, 80); // azul con transparencia
 
   // Dibujar líneas entre estrellas
-  stroke(255, 255, 0 );
+  stroke(255, 255, 0, 100);
   strokeWeight(1);
   noFill();
   if (sp.length > 1) {
