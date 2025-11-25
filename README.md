@@ -1,1 +1,0 @@
-# sistema_de_particulas_2025
