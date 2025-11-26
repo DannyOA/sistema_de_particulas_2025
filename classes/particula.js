@@ -10,14 +10,15 @@ class Particula {
 
     this.estaMuerta = false;
 
-    this.diam = random(50, 85);      // tamaño general de la estrella
+    this.diam = random(30, 110);
+
     this.gravedad = createVector(0, 0.05);
     this.velAngular = random(-0.1, 0.1);
 
-    this.c = color(255, 230, 0, 230); // amarillo brillante
+    this.c = color(255, 230, 0, random(25, 355));
 
-    this.rotacion = random(360);      // rotación propia
-    this.velRotacion = random(-2, 2); // velocidad de giro
+    this.rotacion = random(360);
+    this.velRotacion = random(-2, 2);
   }
 
   update() {
@@ -35,7 +36,6 @@ class Particula {
     }
   }
 
-  // Dibujar estrella con vértices
   drawStar(x, y, r1, r2, npoints) {
     let angle = 360 / npoints;
     let halfAngle = angle / 2;
@@ -60,13 +60,22 @@ class Particula {
     let diamFinal = map(this.tVida, this.tVidaInicial, 0, this.diam, 0);
     diamFinal = max(0, diamFinal);
 
-    let outer = diamFinal / 2; // punta larga
-    let inner = diamFinal / 5; // punta interna
+    let outer = diamFinal / 2;
+    let inner = diamFinal / 5;
 
     push();
     translate(this.pos.x, this.pos.y);
     rotate(this.rotacion);
+
+    fill(255, 230, 0, 20);
+    circle(0, 0, diamFinal * 1.3);
+
+    fill(255, 230, 0, 20);
+    circle(0, 0, diamFinal * 0.9);
+
+    fill(this.c);
     this.drawStar(0, 0, inner, outer, 5);
+
     pop();
   }
 }
